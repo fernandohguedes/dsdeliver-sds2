@@ -35,4 +35,11 @@ public class OrderController {
 
         return ResponseEntity.created(location).body(order);
     }
+
+
+    @PutMapping("/{id}/delivered")
+    public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id) {
+        OrderDTO order = service.setDelivered(id);
+        return ResponseEntity.ok().body(order);
+    }
 }
